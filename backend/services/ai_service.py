@@ -66,70 +66,82 @@ def generate_ai_analysis(metrics, health_report):
     Generate AI-powered repository analysis
     """
 
-    # Create AI prompt
-    prompt = create_analysis_prompt(
-        metrics,
-        health_report
-    )
+    try:
 
-    # NVIDIA API endpoint
-    url = "https://integrate.api.nvidia.com/v1/chat/completions"
+        # Create AI prompt
+        prompt = create_analysis_prompt(
+            metrics,
+            health_report
+        )
 
-    # Request headers
-    headers = {
-        "Authorization": f"Bearer {NVIDIA_API_KEY}",
-        "Content-Type": "application/json"
-    }
+        # NVIDIA API endpoint
+        url = "https://integrate.api.nvidia.com/v1/chat/completions"
 
-    # Request payload
-    payload = {
+        # Request headers
+        headers = {
+            "Authorization": f"Bearer {NVIDIA_API_KEY}",
+            "Content-Type": "application/json"
+        }
 
-        # Stable NVIDIA model
-        "model": "meta/llama-3.1-70b-instruct",
+        # Request payload
+        payload = {
 
-        "messages": [
-            {
-                "role": "user",
-                "content": prompt
+            "model": "meta/llama-3.1-70b-instruct",
+
+            "messages": [
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+
+            "temperature": 0.5,
+
+            # Reduce token size
+            "max_tokens": 300
+        }
+
+        # Send POST request
+        response = requests.post(
+            url,
+            headers=headers,
+            json=payload,
+
+            # IMPORTANT FIX
+            timeout=20
+        )
+
+        # Convert response to JSON
+        data = response.json()
+
+        # Handle invalid responses
+        if "choices" not in data:
+
+            return {
+                "error": True,
+                "content": "AI analysis temporarily unavailable."
             }
-        ],
 
-        "temperature": 0.5,
+        # Extract AI response
+        ai_response = data["choices"][0]["message"]["content"]
 
-        "max_tokens": 500
-    }
+        return {
+            "error": False,
+            "content": ai_response
+        }
 
-    # Send POST request
-    response = requests.post(
-        url,
-        headers=headers,
-        json=payload
-    )
-
-    # Print debug information
-    print("\n==============================")
-    print("NVIDIA API STATUS:")
-    print(response.status_code)
-
-    print("\nNVIDIA API RESPONSE:")
-    print(response.text)
-    print("==============================\n")
-
-    # Convert response to JSON
-    data = response.json()
-
-    # Handle API errors safely
-    if "choices" not in data:
+    except requests.exceptions.Timeout:
 
         return {
             "error": True,
-            "message": data
+            "content": "AI analysis timed out due to slow response."
         }
 
-    # Extract AI response text
-    ai_response = data["choices"][0]["message"]["content"]
+    except Exception as error:
 
-    return {
-        "error": False,
-        "content": ai_response
-    }
+        print("AI SERVICE ERROR:", error)
+
+        return {
+            "error": True,
+            "content": "Unable to generate AI analysis."
+        }

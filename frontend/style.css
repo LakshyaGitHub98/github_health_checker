@@ -1,0 +1,358 @@
+/* ==============================
+   Global Styles
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==============================
+   Body Styles
+============================== */
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #0D1117;
+
+    color: white;
+
+    min-height: 100vh;
+
+    padding: 40px 20px;
+}
+
+
+/* ==============================
+   Main Container
+============================== */
+
+.container {
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+
+/* ==============================
+   Header Section
+============================== */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.header h1 {
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+
+    color: #58A6FF;
+}
+
+.header p {
+
+    color: #C9D1D9;
+
+    font-size: 18px;
+}
+
+
+/* ==============================
+   Input Section
+============================== */
+
+.input-section {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+    flex-wrap: wrap;
+}
+
+.input-section input {
+
+    flex: 1;
+
+    padding: 16px;
+
+    border: 1px solid #30363D;
+
+    border-radius: 10px;
+
+    background-color: #161B22;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+.input-section input:focus {
+
+    outline: none;
+
+    border-color: #58A6FF;
+}
+
+.input-section button {
+
+    padding: 16px 24px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background-color: #238636;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.input-section button:hover {
+
+    background-color: #2EA043;
+}
+
+
+/* ==============================
+   Loading Section
+============================== */
+
+.loading {
+
+    text-align: center;
+
+    margin: 40px 0;
+}
+
+.spinner {
+
+    width: 60px;
+
+    height: 60px;
+
+    border: 6px solid #30363D;
+
+    border-top: 6px solid #58A6FF;
+
+    border-radius: 50%;
+
+    margin: auto;
+
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading p {
+
+    margin-top: 15px;
+
+    color: #C9D1D9;
+}
+
+
+/* ==============================
+   Utility Classes
+============================== */
+
+.hidden {
+    display: none;
+}
+
+
+/* ==============================
+   Error Message
+============================== */
+
+.error-message {
+
+    background-color: #da3633;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ==============================
+   Card Section
+============================== */
+
+.card-section {
+
+    margin-top: 40px;
+}
+
+.card-section h2 {
+
+    margin-bottom: 20px;
+
+    color: #58A6FF;
+}
+
+
+/* ==============================
+   Cards Grid
+============================== */
+
+.cards-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+}
+
+
+/* ==============================
+   Card Styles
+============================== */
+
+.card {
+
+    background-color: #161B22;
+
+    border: 1px solid #30363D;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #58A6FF;
+}
+
+.card h3 {
+
+    margin-bottom: 15px;
+
+    color: #C9D1D9;
+}
+
+.card p {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: white;
+}
+
+
+/* ==============================
+   AI Analysis Section
+============================== */
+
+.ai-section {
+
+    margin-top: 50px;
+}
+
+.ai-section h2 {
+
+    margin-bottom: 20px;
+
+    color: #58A6FF;
+}
+
+.ai-analysis {
+
+    background-color: #161B22;
+
+    border: 1px solid #30363D;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    line-height: 1.8;
+
+    white-space: pre-wrap;
+}
+
+
+/* ==============================
+   Responsive Design
+============================== */
+
+@media (max-width: 768px) {
+
+    .header h1 {
+
+        font-size: 32px;
+    }
+
+    .input-section {
+
+        flex-direction: column;
+    }
+
+    .input-section button {
+
+        width: 100%;
+    }
+}
+
+/* ==============================
+   AI Analysis Formatting
+============================== */
+
+.ai-analysis h3 {
+
+    margin-top: 20px;
+
+    margin-bottom: 10px;
+
+    color: #58A6FF;
+}
+
+.ai-analysis ul {
+
+    margin-left: 20px;
+
+    margin-top: 10px;
+
+    margin-bottom: 10px;
+}
+
+.ai-analysis li {
+
+    margin-bottom: 8px;
+}
+
+.ai-analysis strong {
+
+    color: white;
+}

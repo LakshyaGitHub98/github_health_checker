@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GitHub Repository Health Checker</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+
+            <h1>
+                GitHub Repository Health Checker
+            </h1>
+
+            <p>
+                Analyze GitHub repositories using AI-powered insights
+            </p>
+
+        </div>
+
+
+        <!-- Input Section -->
+        <div class="input-section">
+
+            <input
+                type="text"
+                id="repoInput"
+                placeholder="Paste GitHub repository URL"
+            >
+
+            <button id="analyzeBtn">
+                Analyze Repository
+            </button>
+
+        </div>
+
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+
+            <div class="spinner"></div>
+
+            <p>
+                Analyzing repository...
+            </p>
+
+        </div>
+
+
+        <!-- Error -->
+        <div id="errorMessage" class="error-message hidden">
+
+        </div>
+
+
+        <!-- Results -->
+        <div id="resultsSection" class="hidden">
+
+
+            <!-- Repository Metrics -->
+            <div class="card-section">
+
+                <h2>
+                    Repository Metrics
+                </h2>
+
+                <div class="cards-grid">
+
+                    <div class="card">
+                        <h3>⭐ Stars</h3>
+                        <p id="stars"></p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🍴 Forks</h3>
+                        <p id="forks"></p>
+                    </div>
+
+                    <div class="card">
+                        <h3>👨‍💻 Contributors</h3>
+                        <p id="contributors"></p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🐞 Open Issues</h3>
+                        <p id="issues"></p>
+                    </div>
+
+                    <div class="card">
+                        <h3>💻 Language</h3>
+                        <p id="language"></p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🚀 Releases</h3>
+                        <p id="releases"></p>
+                    </div>
+
+                    <div class="card">
+                        <h3>📘 Documentation</h3>
+                        <p id="readme"></p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Health Report -->
+            <div class="card-section">
+
+                <h2>
+                    Repository Health Report
+                </h2>
+
+                <div class="cards-grid">
+
+                    <div class="card">
+                        <h3>📈 Activity</h3>
+                        <p id="activityStatus"></p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🛠 Maintenance</h3>
+                        <p id="maintenanceStatus"></p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🌍 Community</h3>
+                        <p id="communityStrength"></p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🏆 Health Score</h3>
+                        <p id="healthScore"></p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI Analysis -->
+            <div class="ai-section">
+
+                <h2>
+                    AI Repository Analysis
+                </h2>
+
+                <div id="aiAnalysis" class="ai-analysis">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

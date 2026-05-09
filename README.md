@@ -262,7 +262,7 @@ The project evaluates repositories using:
 
 ## Project Presentation
 
-[Watch Presentation Video](PASTE_YOUR_PPT_VIDEO_LINK_HERE)
+[Watch Presentation Video](https://drive.google.com/file/d/1ql6v8ysWCM5AoTn66HOftwLq2qA2g5Cd/view?usp=sharing)
 
 ---
 

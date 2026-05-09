@@ -1,4 +1,4 @@
-﻿# 🚀 GitHub Repository Health Checker
+# 🚀 GitHub Repository Health Checker
 
 An AI-powered GitHub Repository Health Checker that analyzes public GitHub repositories using GitHub APIs and NVIDIA LLM APIs.
 
@@ -252,15 +252,17 @@ The project evaluates repositories using:
 
 ---
 
-# 🎥 Demo Video
+# 🎥 Demo Videos
 
-Adding demo video link here after recording.
+## Quick Working Demo
 
-Example:
+[Watch Working Demo](https://drive.google.com/file/d/12xWioregYTDjSYekjk2jPThClLCIQb6d/view?usp=sharing)
 
-```md
-[Watch Demo Video](https://drive.google.com/file/d/12xWioregYTDjSYekjk2jPThClLCIQb6d/view?usp=sharing)
-```
+---
+
+## Project Presentation
+
+[Watch Presentation Video](PASTE_YOUR_PPT_VIDEO_LINK_HERE)
 
 ---
 
@@ -279,6 +281,9 @@ Example:
 # 👨‍💻 Author
 
 Lakshya Tripathi
+
+- GitHub: LakshyaGitHub98
+- Email: laktripathi9839@gmail.com
 
 ---
 

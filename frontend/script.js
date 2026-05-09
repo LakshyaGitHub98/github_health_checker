@@ -5,7 +5,7 @@
 // IMPORTANT:
 // Change this URL when deploying backend to Render
 
-const API_URL = "http://127.0.0.1:5000/analyze";
+const API_URL = "https://github-health-checker-mz3u.onrender.com/analyze";
 
 
 // ==============================

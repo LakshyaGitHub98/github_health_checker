@@ -9,39 +9,37 @@ from config import NVIDIA_API_KEY
 
 
 # ==============================
-# Generate AI Prompt
+# Create AI Prompt
 # ==============================
 
 def create_analysis_prompt(metrics, health_report):
 
     """
-    Create AI analysis prompt
+    Create concise AI analysis prompt
     """
 
     prompt = f"""
-You are an expert software engineer and open-source analyst.
-
 Analyze this GitHub repository.
 
-Repository Name:
+Repository:
 {metrics.get("name")}
 
 Description:
 {metrics.get("description")}
 
-Repository Metrics:
+Metrics:
 - Stars: {metrics.get("stars")}
 - Forks: {metrics.get("forks")}
 - Contributors: {metrics.get("contributors")}
 - Open Issues: {metrics.get("open_issues")}
 - Releases: {metrics.get("releases")}
-- Primary Language: {metrics.get("language")}
+- Language: {metrics.get("language")}
 
-Health Metrics:
+Health Report:
 - Health Score: {health_report.get("health_score")}/10
-- Activity Status: {health_report.get("activity_status")}
-- Maintenance Status: {health_report.get("maintenance_status")}
-- Community Strength: {health_report.get("community_strength")}
+- Activity: {health_report.get("activity_status")}
+- Maintenance: {health_report.get("maintenance_status")}
+- Community: {health_report.get("community_strength")}
 
 Provide:
 1. Repository Summary
@@ -50,7 +48,7 @@ Provide:
 4. Production Readiness
 5. Final Recommendation
 
-Keep the response concise, practical, and professional.
+Keep response concise and clear.
 """
 
     return prompt
@@ -63,7 +61,7 @@ Keep the response concise, practical, and professional.
 def generate_ai_analysis(metrics, health_report):
 
     """
-    Generate AI-powered repository analysis
+    Generate AI repository analysis
     """
 
     try:
@@ -77,16 +75,16 @@ def generate_ai_analysis(metrics, health_report):
         # NVIDIA API endpoint
         url = "https://integrate.api.nvidia.com/v1/chat/completions"
 
-        # Request headers
+        # Headers
         headers = {
             "Authorization": f"Bearer {NVIDIA_API_KEY}",
             "Content-Type": "application/json"
         }
 
-        # IMPORTANT:
-        # Using smaller faster model
+        # Payload
         payload = {
 
+            # Faster model
             "model": "meta/llama-3.1-8b-instruct",
 
             "messages": [
@@ -98,15 +96,16 @@ def generate_ai_analysis(metrics, health_report):
 
             "temperature": 0.4,
 
-            "max_tokens": 220
+            # Increased for complete response
+            "max_tokens": 350
         }
 
-        # API request
+        # Send request
         response = requests.post(
             url,
             headers=headers,
             json=payload,
-            timeout=15
+            timeout=18
         )
 
         # Convert response
@@ -122,7 +121,7 @@ def generate_ai_analysis(metrics, health_report):
                 "content": "AI analysis unavailable right now."
             }
 
-        # Extract response text
+        # Extract AI text
         ai_response = data["choices"][0]["message"]["content"]
 
         return {

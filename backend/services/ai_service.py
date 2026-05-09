@@ -50,7 +50,7 @@ Provide:
 4. Production Readiness
 5. Final Recommendation
 
-Keep the response concise and professional.
+Keep the response concise, practical, and professional.
 """
 
     return prompt
@@ -68,7 +68,7 @@ def generate_ai_analysis(metrics, health_report):
 
     try:
 
-        # Create AI prompt
+        # Create prompt
         prompt = create_analysis_prompt(
             metrics,
             health_report
@@ -83,10 +83,11 @@ def generate_ai_analysis(metrics, health_report):
             "Content-Type": "application/json"
         }
 
-        # Request payload
+        # IMPORTANT:
+        # Using smaller faster model
         payload = {
 
-            "model": "meta/llama-3.1-70b-instruct",
+            "model": "meta/llama-3.1-8b-instruct",
 
             "messages": [
                 {
@@ -95,34 +96,33 @@ def generate_ai_analysis(metrics, health_report):
                 }
             ],
 
-            "temperature": 0.5,
+            "temperature": 0.4,
 
-            # Reduce token size
-            "max_tokens": 300
+            "max_tokens": 220
         }
 
-        # Send POST request
+        # API request
         response = requests.post(
             url,
             headers=headers,
             json=payload,
-
-            # IMPORTANT FIX
-            timeout=20
+            timeout=15
         )
 
-        # Convert response to JSON
+        # Convert response
         data = response.json()
 
-        # Handle invalid responses
+        # Validate response
         if "choices" not in data:
+
+            print("NVIDIA API ERROR:", data)
 
             return {
                 "error": True,
-                "content": "AI analysis temporarily unavailable."
+                "content": "AI analysis unavailable right now."
             }
 
-        # Extract AI response
+        # Extract response text
         ai_response = data["choices"][0]["message"]["content"]
 
         return {
@@ -134,7 +134,7 @@ def generate_ai_analysis(metrics, health_report):
 
         return {
             "error": True,
-            "content": "AI analysis timed out due to slow response."
+            "content": "AI analysis took too long to respond."
         }
 
     except Exception as error:

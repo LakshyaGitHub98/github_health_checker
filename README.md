@@ -1,4 +1,3 @@
-
 # 🚀 GitHub Repository Health Checker
 
 An AI-powered GitHub Repository Health Checker that analyzes public GitHub repositories using GitHub APIs and NVIDIA LLM APIs.
@@ -55,11 +54,11 @@ The application evaluates repository activity, maintenance quality, community st
 - Render (Backend)
 - Vercel (Frontend)
 
-
+---
 
 # 📂 Project Structure
 
-
+```text
 github-repository-health-checker/
 │
 ├── frontend/
@@ -92,6 +91,9 @@ github-repository-health-checker/
 ├── README.md
 ├── LICENSE
 └── .gitignore
+````
+
+---
 
 # ⚙️ Backend Setup
 
@@ -135,7 +137,6 @@ Create a `.env` file inside the backend folder.
 
 ```env
 GITHUB_TOKEN=your_github_token
-
 NVIDIA_API_KEY=your_nvidia_api_key
 ```
 
@@ -149,7 +150,7 @@ python app.py
 
 Backend runs on:
 
-```bash
+```text
 http://127.0.0.1:5000
 ```
 
@@ -179,7 +180,7 @@ Recommended:
 
 Generate token from:
 
-```bash
+```text
 https://github.com/settings/tokens
 ```
 
@@ -189,7 +190,7 @@ https://github.com/settings/tokens
 
 Generate API key from:
 
-```bash
+```text
 https://build.nvidia.com/
 ```
 
@@ -201,7 +202,7 @@ https://build.nvidia.com/
 
 ### POST
 
-```bash
+```text
 /analyze
 ```
 
@@ -309,6 +310,3 @@ Lakshya Tripathi
 # 📄 License
 
 This project is licensed under the MIT License.
-
-```
-```

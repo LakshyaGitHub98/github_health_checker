@@ -1,3 +1,4 @@
+
 # 🚀 GitHub Repository Health Checker
 
 An AI-powered GitHub Repository Health Checker that analyzes public GitHub repositories using GitHub APIs and NVIDIA LLM APIs.
@@ -54,11 +55,11 @@ The application evaluates repository activity, maintenance quality, community st
 - Render (Backend)
 - Vercel (Frontend)
 
----
+
 
 # 📂 Project Structure
 
-```bash
+
 github-repository-health-checker/
 │
 ├── frontend/
@@ -91,9 +92,6 @@ github-repository-health-checker/
 ├── README.md
 ├── LICENSE
 └── .gitignore
-```
-
----
 
 # ⚙️ Backend Setup
 
@@ -170,7 +168,8 @@ cd frontend
 ## 2. Open using Live Server
 
 Recommended:
-- VS Code Live Server Extension
+
+* VS Code Live Server Extension
 
 ---
 
@@ -180,7 +179,9 @@ Recommended:
 
 Generate token from:
 
+```bash
 https://github.com/settings/tokens
+```
 
 ---
 
@@ -188,7 +189,9 @@ https://github.com/settings/tokens
 
 Generate API key from:
 
+```bash
 https://build.nvidia.com/
+```
 
 ---
 
@@ -231,24 +234,38 @@ https://build.nvidia.com/
 
 The project evaluates repositories using:
 
-- Repository activity
-- Last commit date
-- Stars and forks
-- Contributors count
-- Releases availability
-- Documentation presence
-- Community strength
-- Maintenance quality
+* Repository activity
+* Last commit date
+* Stars and forks
+* Contributors count
+* Releases availability
+* Documentation presence
+* Community strength
+* Maintenance quality
+
+---
+
+# ⚠️ Caveats & Limitations
+
+* GitHub API rate limits apply, especially for unauthenticated requests.
+* Excessive API requests may temporarily return rate limit errors from GitHub.
+* Using a GitHub personal access token increases the allowed request limit.
+* Analysis quality depends on the availability and accuracy of public repository data.
+* Large repositories may take slightly longer to analyze.
+* AI-generated insights may occasionally vary and should not be considered absolute production-grade audits.
+* Private repositories are not supported unless proper authenticated access is implemented.
 
 ---
 
 # 🚀 Deployment
 
 ## Backend Deployment
-- Render
+
+* Render
 
 ## Frontend Deployment
-- Vercel
+
+* Vercel
 
 ---
 
@@ -268,13 +285,15 @@ The project evaluates repositories using:
 
 # 🔮 Future Improvements
 
-- Repository charts and analytics
-- Commit frequency graphs
-- Repository comparison
-- Authentication system
-- Saved repository history
-- Exportable PDF reports
-- Dark/light theme switch
+* Repository charts and analytics
+* Commit frequency graphs
+* Repository comparison
+* Authentication system
+* Saved repository history
+* Exportable PDF reports
+* Dark/light theme switch
+* Better handling for GitHub API rate limits
+* Caching for repeated repository analysis requests
 
 ---
 
@@ -282,11 +301,14 @@ The project evaluates repositories using:
 
 Lakshya Tripathi
 
-- GitHub: LakshyaGitHub98
-- Email: laktripathi9839@gmail.com
+* GitHub: LakshyaGitHub98
+* Email: [laktripathi9839@gmail.com](mailto:laktripathi9839@gmail.com)
 
 ---
 
 # 📄 License
 
 This project is licensed under the MIT License.
+
+```
+```
